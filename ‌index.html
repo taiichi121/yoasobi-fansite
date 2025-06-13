@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>YOASOBI  Fan Site</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <nav>
+    <ul>
+      <li><a href="‌index.html">ホーム</a></li>
+      <li><a href="about.html">YOASOBIについて</a></li>
+      <li><a href="songs.html">楽曲</a></li>
+      <li><a href="mv.html">MV</a></li>
+      <li><a href="contact.html">連絡先</a></li>
+    </ul>
+  </nav>
+</header>
+<section class="hero">
+  <div class="hero-content">
+    <h1 id="typing-title"></h1>
+    <p id="typing-subtitle"></p >
+    <button class="more-btn" id="moreBtn">もっと知る</button>
+  </div>
+</section>
+<footer>
+  <p>&copy; 2025 YOASOBI Fansite. All rights reserved.</p >
+</footer>
+<script src="js/main.js"></script> 
+<script>
+  window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+setTimeout(() => {
+      typeLine("typing-title", "YOASOBI", () => {
+        typeLine("typing-subtitle", "小説を音楽にするユニット", () => {
+          const btn = document.getElementById("moreBtn");
+          btn.style.opacity = "1";
+          btn.style.transform = "translateY(0)";
+        });
+      });
+    }, 800);
+
+    document.getElementById("moreBtn").addEventListener("click", () => {
+      document.body.classList.add("fade-out");
+      setTimeout(() => {
+        window.location.href = "news.html"; 
+      }, 800);
+    });
+  });
+
+  function typeLine(id, text, callback) {
+    const el = document.getElementById(id);
+    el.classList.add("type-line");
+    el.textContent = "";
+    let i = 0;
+    const timer = setInterval(() => {
+      el.textContent += text.charAt(i);
+      i++;
+      if (i >= text.length) {
+        clearInterval(timer);
+        el.classList.remove("type-line");
+        if (callback) callback();
+      }
+    }, 150);
+  }
+</script> 
+<script>
+  window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+  });
+</script><script>document.getElementById("moreBtn").addEventListener("click", () => {
+  const btn = document.getElementById("moreBtn");
+  document.body.classList.remove("loaded"); 
+  setTimeout(() => {
+    window.location.href = "news.html";
+  }, 800); 
+});</script>
+</body>
+</html>
